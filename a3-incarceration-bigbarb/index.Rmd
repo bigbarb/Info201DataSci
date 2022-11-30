@@ -1,0 +1,82 @@
+---
+title: "A3: Incarceration"
+output: html_document
+---
+```{r, include = FALSE}
+source("chart_2.R", local = knitr::knit_global())
+source("chart_1.R")
+source("map_example.R")
+source("summary.R")
+```
+
+### Introduction
+
+I analyzed data on jail population per county/state, the US jail population, from the year 2003. This data set was provided by the Vera Institute. I wanted to specifically emphasized after the year 2003 since I was born on May 4th, 2003 and wanted to see if the data matched with my observations growing up. I observed variables across race (Black Prison Population), total prison pop, and gender(male vs female) because these are some of the biggest issues/debated topics today. I wanted to understand how these issues have developed and or change since the year 2003.
+
+### Summary Information
+```{r, include = FALSE}
+source("summary.R", local = knitr::knit_global())
+```
+
+Since 2003, the total US prison population is `r summary_info$total_prison_pop` inmates. This is the number of how many have been imprisoned/incarcerated since 2003. The state with the highest prison population is `r summary_info$states_highest` (California) and the state with the lowest prison population is `r summary_info$states_lowest` (South Dakota). And since I am from Washington and currently live in Washington, the mean/avg black prison population is 135.755869 inmates (avg_black_prison_pop) and the mean/avg male prison population is 409.83627 inmates (avg_male_prison_pop).
+
+
+### The Dataset
+
+**_Who collected the data?_**
+The data was collected from Vera Institute 
+
+**_How was the data collected or generated?_**
+After looking at the Vera Institute GitHub repository, it seems like the researchers at Vera Institute collected the data from the two Bureau of Justice Statistics(BJS):
+"the Census of Jails (COJ), which covers all jails and is conducted every five to eight years since 1970, and the Annual Survey of Jails (ASJ), which covers about one-third of jails-and includes nearly all of the largest jails-that has been conducted in non-census years since 1982."
+
+**_Why was the data collected?_** 
+Vera Institute collected and created the data set to bring more awareness to one of the most important issues in the United States, Incarceration. Their goal was to help understand, explain, and disrupt the current criminal system and immigration and improve it to promote fairness and safety. Lastly, their data set produced a first-n-kind national data set that can examine both jail and prison incarceration at the COUNTRY level.
+
+**_How many observations (rows) are in your data?_** 
+There are 153811 (summary_info$number_rows) rows in the data set.
+
+ 
+**__How many features (columns) are in the data?__** 
+There are 36 (summary_info$number_columns) columns in the data set.
+
+**_What, if any, ethical questions or questions of power do you need to consider when working with this data?_** 
+Some ethical questions that I have to consider when working with this data is about race and gender? Is race self-reported by the prisoners? Skin Color? People can me mixed! What about those prisoners who are bi-racial or multiracial? With Gender, how would they define it? Is it self reported? Are genitals examined? Male and female are the "main" genders when we are referencing to social and cultural differences than biological ones. What about prisoners that are born inter-sex? Non-binary? There are lots of genders and other ways people choose to identify themselfs.
+
+**_What are possible limitations or problems with this data?   (at least 200 words)_**
+I think some possible limitations and problems with the data set is how they define certain things. As I addressed above, how is gender and race reported? If the data only include those that are within the social construct then I think it is leaving out a percentage of inmates/prisoners who differ from the social construct. For example, being bi-racial, multi-racial. Being inter-sex, non-binary, transgender, etc. Additionally, After looking through the data sets, I noticed that some values for the number of people incarcerated are in decimals. This does not make sense to me because people are a whole, not a half, or a quarter, so the decimals does not make sense unless they calculated it differently, or included another variable in the calculation that resulted in the decimal. Another limitation. Another limitation I could think of is the process of using the state as the unit of analysis. Looking through my data, I noticed how some have no data available. It goes for a few columns and the data appears. Why is that. If each state has its own laws and regulations on how the legal system is run, how can it be ensured that everything is true? Is everything calculated correctly? One state might do it a certain way and another state might do the same. Even on the github repository it says that the officials are the ones that manage how communities use the incarceration. But the county-level makes it more robust.
+
+
+### Trends Over Time Chart
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+trends
+```
+
+
+*_I decided to include the chart because I wanted to see how the total Prison Population has changed over time across four various Washington State counties in different geographical regions (different parts of Washington); I picked Clark, King, Pierce, and Spokane County. Each color line represents each of these counties. Incarceration has been a debated topic for a very long time. With King County being the largest and highest population, it makes sense for them to have the highest total prison population over time. And Pierce County running up in second, right behind King County. Clark and Spokane are right close to each other and doesn't have as high of a total prison population compared to King and Pierce County._*
+
+
+### Variable Comparison Chart
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+male_female_prison_pop_2003
+```
+
+*_I decided to include this bar chart comparing gender(male + female) in relation to the Total US Prison Population sine 2003. I picked the year 2003 because that was the year that I was born. A pattern that emerged was that  as time went on, the male gender makes up a majority of the Total US Prison Population compared to women._*
+
+
+### Map
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+prison_pop_map
+```
+
+*_I decided to include this map to see the total prison population in each state and then make inferences based on my Trend Chart and my variable comparison chart. The color key tells us that the darker the blue, less prison/incarceration for sum of the total population; and the darker the blue, the more prison/incarceration for sum of the total population. A pattern that I see emerging is that its mainly the southern part of the United States and the largest states in the South that have the most prison population/incarceration based on its "light" shade of blue. I did some outside research and according to this PRB (Population Reference Bureau) article called "The US has world's highest incarceration rate" states that ""tough-on-crime" policies are largely responsible for sending growing numbers of people to prison in the South and keeping them there longer." And based on my other data/charts it can be assumed that in those Southern state prisons, the majority are Black Men, they take up a larger fraction of the population compared to other genders and races._*
+
+
+*_Works Cited:_*
+
+1. Scommegna, Paola. “U.S. Has World's Highest Incarceration Rate.” PRB - (Population Reference Bureau), 10 Aug. 2012, https://www.prb.org/resources/u-s-has-worlds-highest-incarceration-rate/.  
+ 
+**_Made by Brian Tran, Info 201 Spring 2022, A3: Data Visualization (Incarceration)_**

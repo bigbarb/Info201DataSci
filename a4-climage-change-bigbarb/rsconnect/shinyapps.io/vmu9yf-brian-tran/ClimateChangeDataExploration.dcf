@@ -1,0 +1,14 @@
+name: ClimateChangeDataExploration
+title: ClimateChangeDataExploration
+username:
+account: vmu9yf-brian-tran
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6385758
+bundleId: 5953889
+url: https://vmu9yf-brian-tran.shinyapps.io/ClimateChangeDataExploration/
+when: 1653708822.63646
+lastSyncTime: 1653708822.63647
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .RData|LICENSE|owid-co2-data.csv
